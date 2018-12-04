@@ -8,13 +8,11 @@ pipeline {
                                                                 label 'master'
                                                         }
 
-                        }
-                                                option{
-                                                        retry(2)
-                                                }
+                             }
                                                 steps {
-                                                        folder('HelloWorld')
-                                                        sh 'touch HelloWorld >> echo "Hello Peter"'
+                                                        
+                                                        sh 'touch HelloWorld'
+							sh 'echo "Hello Peter >> Helloworld"'
                                                 }
 
 
