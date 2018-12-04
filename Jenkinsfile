@@ -2,7 +2,7 @@ pipeline {
 
         agent none
         stages{
-                stages('hello-world'){
+                stage('hello-world'){
                         agent{
 							node{
 								lable 'master'
@@ -14,10 +14,10 @@ pipeline {
 						}
 						steps {
 							folder('HelloWorld')
-						}
-						steps {
 							touch HelloWorld >> echo "Hello Peter"
 						}
+						
+						
                 }
         }
 }
