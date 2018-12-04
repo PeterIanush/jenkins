@@ -4,20 +4,20 @@ pipeline {
         stages{
                 stage('hello-world'){
                         agent{
-							node{
-								lable 'master'
-							}
-                        
+                                                        node{
+                                                                label 'master'
+                                                        }
+
                         }
-						option{
-							retry(2)
-						}
-						steps {
-							folder('HelloWorld')
-							touch HelloWorld >> echo "Hello Peter"
-						}
-						
-						
+                                                option{
+                                                        retry(2)
+                                                }
+                                                steps {
+                                                        folder('HelloWorld')
+                                                        sh 'touch HelloWorld >> echo "Hello Peter"'
+                                                }
+
+
                 }
         }
 }
