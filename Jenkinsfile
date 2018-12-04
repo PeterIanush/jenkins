@@ -1,4 +1,5 @@
-peline {
+pipeline {
+}
         agent none
         options {
 
@@ -10,7 +11,7 @@ peline {
                 stages('hello-world'){
                         agent{
 							node{
-								lable 'local-server'
+								lable 'master'
 							}
                         
                         }
