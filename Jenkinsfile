@@ -16,7 +16,7 @@ stages {
         }
         steps {
             sh 'mkdir -p /var/logs/geocitizen/logs/'
-            sh 'nohup mvn -f /usr/local/projects/Geocitizen/pom.xml clean install >> /var/logs/geocitizen/logs/deploy.log'
+            sh 'mvn -f /usr/local/projects/Geocitizen/pom.xml clean install'
         }
     }
 
@@ -38,7 +38,7 @@ stages {
                             sh 'rm -rf /usr/local/tomcat9/webapps/citizen'
                             sh 'cp /usr/local/projects/Geocitizen/target/citizen.war /usr/local/tomcat9/webapps/'
                     } else {
-                        sh 'nohup  mvn -f /usr/local/projects/Geocitizen/pom.xml clean install -DskipTests >> /var/logs/geocitizen/logs/deploy.log'
+                        sh 'mvn -f /usr/local/projects/Geocitizen/pom.xml clean install -DskipTests'
                         sh 'rm -rf /usr/local/tomcat9/webapps/citizen.war'
                         sh 'rm -rf /usr/local/tomcat9/webapps/citizen'
                         sh 'cp /usr/local/projects/Geocitizen/target/citizen.war /usr/local/tomcat9/webapps/'
