@@ -15,9 +15,9 @@ stages {
             }
         }
         steps {
-            sh 'mkdir -p /var/logs/geocitizen/logs/'
+            sh ('mkdir -p /var/logs/geocitizen/logs/')
 	    
-            sh 'sudo mvn -f /usr/local/projects/Geocitizen/pom.xml install -DskipTests'
+            sh ('sudo mvn -f /usr/local/projects/Geocitizen/pom.xml install -DskipTests')
         }
     }
 
