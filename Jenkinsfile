@@ -16,8 +16,8 @@ stages {
         }
         steps {
             sh ('mkdir -p /var/logs/geocitizen/logs/')
-	dir("/usr/local/projects/Geocitizen/"){    
-            sh ('sudo mvn install -DskipTests')
+	dir("/usr/local/projects/Geocitizen"){    
+            sh ('mvn install -DskipTests')
 	}
         }
 
