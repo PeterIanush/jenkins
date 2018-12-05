@@ -11,7 +11,7 @@ stages {
     stage('LOCAL') {
         agent {
             node {
-                label 'MASTER'
+                label 'master'
             }
         }
         steps {
@@ -24,7 +24,7 @@ stages {
     stage('Build') {
         agent {
             node {
-                label 'MASTER'
+                label 'master'
             }
         }
         options {
@@ -71,7 +71,7 @@ stages {
                 label 'MASTER'
             }
         }
-steps {
+	steps {
             sh 'mvn clean'
         }
         }
