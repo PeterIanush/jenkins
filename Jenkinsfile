@@ -16,7 +16,7 @@ stages {
         }
         steps {
             sh 'mkdir -p /var/logs/geocitizen/logs/'
-            sh 'nohup mvn -f $(PROJECT_PATH)/pom.xml clean install >> $(DEPLOY_LOG)'
+            sh 'nohup mvn -f ${PROJECT_PATH}/pom.xml clean install >> ${DEPLOY_LOG}'
         }
     }
 
@@ -33,15 +33,15 @@ stages {
         }
         steps {
                 script {
-                    if (fileExists ('$(PROJECT_PATH)/target/citizen.war')) {
+                    if (fileExists ('${PROJECT_PATH}/target/citizen.war')) {
                             sh 'rm -rf /usr/local/tomcat9/webapps/citizen.war'
                             sh 'rm -rf /usr/local/tomcat9/webapps/citizen'
-                            sh 'cp $PROJECT_PATH/target/citizen.war /usr/local/tomcat9/webapps/'
+                            sh 'cp ${PROJECT_PATH}/target/citizen.war /usr/local/tomcat9/webapps/'
                     } else {
-                        sh 'nohup  mvn -f $PROJECT_PATH/pom.xml clean install -DskipTests >> $DEPLOY_LOG'
+                        sh 'nohup  mvn -f ${PROJECT_PATH}/pom.xml clean install -DskipTests >> ${DEPLOY_LOG}'
                         sh 'rm -rf /usr/local/tomcat9/webapps/citizen.war'
                         sh 'rm -rf /usr/local/tomcat9/webapps/citizen'
-                        sh 'cp $PROJECT_PATH/target/citizen.war /usr/local/tomcat9/webapps/fi'
+                        sh 'cp ${PROJECT_PATH}/target/citizen.war /usr/local/tomcat9/webapps/'
 
 
                     }
