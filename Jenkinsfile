@@ -48,20 +48,19 @@ pipeline {
                                     }
                 
             }
-            post {
-                failure {
-                    mail subject: "${currentBuild.fullDisplayName} FAILURE",
-                         body: "${env.BUILD_URL}",
-                         to: 'petiayanush@gmail.com, petiaianush@gmail.com'
-                }
-                success {
-                    mail subject: "${currentBuild.fullDisplayName} SUCCESS",
-                         body: "${env.BUILD_URL}",
-                         to: 'petiayanush@gmail.com, petiaianush@gmail.com'
-                }
-                always {
-                    
-                    deleteDir()
+	    always{
+            	post {
+                	failure {
+                    		mail subject: "${currentBuild.fullDisplayName} FAILURE",
+                         	body: "${env.BUILD_URL}",
+                         	to: 'petiayanush@gmail.com, petiaianush@gmail.com'
+                	}
+                	success {
+                    		mail subject: "${currentBuild.fullDisplayName} SUCCESS",
+                         	body: "${env.BUILD_URL}",
+                         	to: 'petiayanush@gmail.com, petiaianush@gmail.com'
+                		}
+                
                 }
             }
         }
@@ -80,5 +79,5 @@ pipeline {
         }
         
     }   
-}
+
 
