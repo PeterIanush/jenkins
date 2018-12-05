@@ -71,7 +71,7 @@ stages {
                 label 'MASTER'
             }
         }
-teps {
+steps {
             sh 'mvn clean'
         }
         }
